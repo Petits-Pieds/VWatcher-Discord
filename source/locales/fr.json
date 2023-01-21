@@ -1,3 +1,6 @@
 {
-    "server_latency": "Latence du serveur" 
+    "name": "Français",
+    "translations": {
+        "open_ticket": "Ouvrir un billet"
+    }
 }

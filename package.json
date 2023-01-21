@@ -13,5 +13,6 @@
     "discord.js": "^14.7.1",
     "mysql2": "^3.0.1",
     "path": "^0.12.7"
-  }
+  },
+  "repository": "https://github.com/Petits-Pieds/VWatcher-Discord.git"
 }

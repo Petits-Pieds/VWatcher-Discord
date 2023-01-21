@@ -1,3 +1,20 @@
 {
-    "server_latency": "Server latency"
+    "name": "English",
+    "translations": {
+        "general": {},
+        "ticket_opening": {
+            "open_ticket": "Open a ticket",
+            "subject_label": "Subject",
+            "subject_placeholder": "Ticket subject (mandatory)",
+            "description_label": "Description",
+            "description_placeholder": "Ticket description (optional)"
+        },
+        "ticket_opened": {
+            "title": "Ticket opened",
+            "description": "Your ticket has been opened <#%s>",
+            "subject_name": "Subject",
+            "description_name": "Description",
+            "no_description": "No description"
+        }
+    }
 }

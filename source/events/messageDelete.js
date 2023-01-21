@@ -1,5 +1,5 @@
 module.exports = {
-    name: "MessageCreate",
+    name: "MessageDelete",
     execute(client, message) {
         console.log(message.id);
     }

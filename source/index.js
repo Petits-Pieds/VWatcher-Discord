@@ -1,7 +1,7 @@
 const config = require("../config.json");
 const locale = require("./locale");
 const { Client, Events, GatewayIntentBits, Collection, REST, Routes, EmbedBuilder, ChannelType } = require("discord.js");
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.DirectMessages] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildMessages, GatewayIntentBits.DirectMessages]});
 const fs = require("fs");
 const path = require("path");
 const guildCommands = [];
