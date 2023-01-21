@@ -5,27 +5,32 @@ const path = require('path');
 const locales = {}
 
 const localesPath = path.join(__dirname, 'locales');
-const localesFiles = fs.readdirSync(localesPath).filter(file => file.endsWith('.json'));
-for (const file of localesFiles) {
+const localeFiles = fs.readdirSync(localesPath).filter(file => file.endsWith('.json'));
+for (const file of localeFiles) {
     const localeName = file.replace('.json', '');
-    const localePath = path.join(localesPath, file);
-    const translations = require(localePath);
-    if (Object.keys(translations).length > 0) {
-        locales[localeName] = translations;
+    const filePath = path.join(localesPath, file);
+    const locale = require(filePath);
+    if (localeName && Object.keys(locale).length > 0) {
+        locales[localeName] = locale;
     }
 }
 
-function translate(string, ...args) {
-    if (locales[config.locale]) {
-        if (locales[config.locale][string]) {
-            return util.format(locales[config.locale][string], ...args);
+function translate(locale, translation, ...args) {
+    locale = locale ? locale: config.locale;
+    if (locales[locale]) {
+        if (locales[locale][translation]) {
+            return util.format(locales[locale][translation], ...args);
         } else {
-            return `Translation '${string}' does not exist`;
+            return `Translation "${translation}" does not exist`;
         }
-    } else if (config.locale !== 'en-US' && locales['en-US'] && locales['en-US'][string]) {
-        return util.format(locales['en-US'][string], ...args);
+    } else if (locale !== "en-US" && locales["en-US"]) {
+        if (locales["en-US"][translation]) {
+            return util.format(locales["en-US"][translation], ...args);
+        } else {
+            return `Translation "${translation}" does not exist`
+        }
     } else {
-        return `Locale '${config.locale}' does not exist`;
+        return `Locale "${locale}" does not exist`;
     }
 }
 
